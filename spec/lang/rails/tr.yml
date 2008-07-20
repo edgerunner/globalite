@@ -1,0 +1,3 @@
+# ActionController::Base.resources_path_names
+resources_path_new: yeni
+resources_path_edit: duzenle

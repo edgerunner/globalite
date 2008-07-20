@@ -5,6 +5,10 @@ require File.dirname(__FILE__) + '/helpers/spec_helper'
 include ActionView::Helpers::DateHelper
 include ActionView::Helpers::NumberHelper
 include ActionView::Helpers::FormOptionsHelper
+include ActionView::Helpers::UrlHelper
+include ActionController
+include ActionController::Resources
+include ActionController::Routing
 
 describe "when Rails is loaded" do
   
@@ -113,4 +117,22 @@ describe "when Rails is loaded" do
     us.to_sentence.should == 'Heidi et Matt'
   end
   
+  it 'url should be localized' do
+  	pending "TODO: Implement spec for url localization"
+  	# As a RSpec newbie, I could not figure out how to describe actioncontroller routing specs.
+  	# Please feel free to implement the specs I described in plain english below
+  	# -Mert
+
+	Globalite.current_language = :en
+	# new_controller_path should return "/controller/new"
+	# edit_controller_path(1) should return "/controller/1/edit"
+	# GET /controller/new should activate :controller => 'controller', :action => 'new'
+	# GET /controller/1/edit should activate :controller => 'controller', :action => 'edit', :id => 1
+	
+	Globalite.current_language = :tr
+	# new_controller_path should return "/controller/yeni"
+	# edit_controller_path(1) should return "/controller/1/duzenle"
+	# GET /controller/yeni should activate :controller => 'controller', :action => 'new'
+	# GET /controller/1/duzenle should activate :controller => 'controller', :action => 'edit', :id => 1
+  end
 end
